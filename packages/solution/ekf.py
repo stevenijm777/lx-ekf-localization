@@ -24,7 +24,7 @@ class EKF:
             # TODO: Update these equations
             self.q[0] = self.q[0] + dX*np.cos(self.q[2])
             self.q[1] = self.q[1] + dX*np.sin(self.q[2])
-            self.q[2] = self.q[2] + DT
+            self.q[2] = self.q[2] + dT
 
             self.q[2] = wrap_angle(self.q[2])
 
