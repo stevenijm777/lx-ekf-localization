@@ -44,8 +44,8 @@ class EKF:
             dy = tag_xy[1] - self.q[1]
             r2 = dx**2 + dy**2
             r = np.sqrt(r2)
-            if r < 0.01: return
-            
+            #if r < 0.01: return
+
             bearing_pred = wrap_angle(np.arctan2(dy, dx) - self.q[2])
             z_pred = np.array([r, bearing_pred])
 

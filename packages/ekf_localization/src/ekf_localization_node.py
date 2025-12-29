@@ -300,11 +300,11 @@ class EKFLocalizationNode(DTROS):
         # Decompress the image
         image_rgb = compressed_imgmsg_to_rgb(self.latest_img)
 
-        #rect_image = self.rectifier.rectify(image_rgb, interpolation=cv2.INTER_CUBIC)
+        rect_image = self.rectifier.rectify(image_rgb, interpolation=cv2.INTER_CUBIC)
 
         # Convert to grayscale for AprilTag detection
         #rect_image_gray = cv2.cvtColor(rect_image, cv2.COLOR_RGB2GRAY)
-        image_gray = cv2.cvtColor(image_rgb, cv2.COLOR_RGB2GRAY)
+        image_gray = cv2.cvtColor(rect_image, cv2.COLOR_RGB2GRAY)
 
         # Camera parameters for pose estimation
         fx = self.camera_model.K[0, 0]
